@@ -6,6 +6,10 @@ module ActiveAdmin
       def xlsx(options={}, &block)
         config.xlsx_builder = ActiveAdmin::Axlsx::Builder.new(config.resource_class, options, &block)
       end
+
+      def sizes(options={}, &block)
+        config.sizes_builder = ActiveAdmin::Axlsx::Builder.new(config.resource_class, options, &block)
+      end
     end
   end
 end

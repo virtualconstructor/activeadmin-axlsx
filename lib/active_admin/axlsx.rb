@@ -12,6 +12,10 @@ class Railtie < ::Rails::Railtie
         # The mime type to be used in respond_to |format| style web-services in rails
         Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
       end
+      if Mime::Type.lookup_by_extension(:sizes).nil?
+        # The mime type to be used in respond_to |format| style web-services in rails
+        Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :sizes
+      end
     rescue NameError
       # noop
     end
@@ -19,6 +23,7 @@ class Railtie < ::Rails::Railtie
     ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
     ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
     ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
+    ActiveAdmin::Views::PaginatedCollection.add_format :sizes
   end
 
   config.after_initialize do
