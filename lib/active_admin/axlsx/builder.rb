@@ -153,7 +153,7 @@ module ActiveAdmin
         attr_reader :name, :data
 
         def localized_name(i18n_scope = nil)
-          return name.to_s.titleize unle0ss i18n_scope
+          return name.to_s.titleize unless i18n_scope
           I18n.t name.to_sym, scope: i18n_scope
         end
       end
