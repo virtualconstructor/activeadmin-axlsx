@@ -23,7 +23,7 @@ class Railtie < ::Rails::Railtie
     ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
     ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
     ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
-    ActiveAdmin::Views::PaginatedCollection.add_format :sizes
+    # ActiveAdmin::Views::PaginatedCollection.add_format :sizes
   end
 
   config.after_initialize do
